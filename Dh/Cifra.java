@@ -1,6 +1,9 @@
 package Dh;
 
 public class Cifra {
+
+    // Recebe mensagem e de acordo com a chave avança numeros do codigo ascii
+    // Depois converte para string, gerando uma mensagem diferente (cifrada)
     public String cifrar(String valorDeEntrada, int chave){
         String mensagem = "";
         int[] ascii = new int[valorDeEntrada.length()];
@@ -15,6 +18,8 @@ public class Cifra {
         return mensagem;
     }
 
+    // Recebe mensagem cifrada e a chava, que retrocede numeros do código ascii
+    // Depois converte para string, decifrando a mensagem caso a chave seja a correta
     public String decifrar(String valorCifrado, int chave){
         String mensagem = "";
         int[] ascii = new int[valorCifrado.length()];
