@@ -26,7 +26,11 @@ public class Dh {
     }
 
     public void calculaChaveSecreta(int chavePublicaDoOutroLado){
-        this.chaveSecreta = (int) (Math.pow(chavePublicaDoOutroLado, chavePrivada) % numeroPrimoP);
+        int resultado = 1;
+        for (int i = 0; i < chavePrivada; i++) {
+            resultado = (resultado * chavePublicaDoOutroLado) % numeroPrimoP;
+        }
+        this.chaveSecreta = resultado;
     }
 
     public int getChavePublica(){
