@@ -1,33 +1,25 @@
 package Dh;
 
 public class Cifra {
-    private String valorDeEntrada;
-    private String valorCifrado;
-
-    public Cifra(String mensagem){
-        this.valorDeEntrada = mensagem;
-    }
-
-    public String cifrar(int chave){
+    public String cifrar(String valorDeEntrada, int chave){
         String mensagem = "";
-        int[] ascii = new int[this.valorDeEntrada.length()];
+        int[] ascii = new int[valorDeEntrada.length()];
 
-        for(int i = 0; i < this.valorDeEntrada.length(); i++){
+        for(int i = 0; i < valorDeEntrada.length(); i++){
             ascii[i] = ((int) valorDeEntrada.charAt(i)) + chave;
         }
 
         for(int a : ascii){
             mensagem += Character.toString((char) a);
         }
-        this.valorCifrado = mensagem;
         return mensagem;
     }
 
-    public String decifrar(int chave){
+    public String decifrar(String valorCifrado, int chave){
         String mensagem = "";
-        int[] ascii = new int[this.valorCifrado.length()];
+        int[] ascii = new int[valorCifrado.length()];
 
-        for(int i = 0; i < this.valorCifrado.length(); i++){
+        for(int i = 0; i < valorCifrado.length(); i++){
             ascii[i] = ((int) valorCifrado.charAt(i)) - chave;
         }
 
