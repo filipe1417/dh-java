@@ -13,18 +13,21 @@ public class Dh {
 
     public Dh(){
         this.chavePrivada = geraNumeroAleatorio();
-        System.out.println("Chave privada: " + chavePrivada);
         geraChavePublica();
     }
 
+    // Gera chave publica (Z^X mod P)
     private void geraChavePublica(){
         this.chavePublica = (int) (Math.pow(numeroBaseG, chavePrivada) % numeroPrimoP);
-        System.out.println("Chave publica: " + chavePublica);
     }
+
+    // Numero aleatório (X) independente entre as partes
     private int geraNumeroAleatorio (){
         return rand.nextInt(numeroPrimoP);
     }
 
+    // Calcula chave secreta com base na chave recebida durante a troca
+    // Equivalente a (Y'^X mod P)
     public void calculaChaveSecreta(int chavePublicaDoOutroLado){
         int resultado = 1;
         for (int i = 0; i < chavePrivada; i++) {
